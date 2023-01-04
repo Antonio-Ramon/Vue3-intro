@@ -28,10 +28,16 @@
             <p v-else>Out of Sotck</p>
             <p v-show="onSale">On Sale</p>
 
+            <!-- "v-for" é um atributo usado para iterar sobre um array ou objeto e renderizar um elemento HTML para cada item  -->
+            <ul>
+              <li v-for="detail in details"> {{ detail }} </li>
+            </ul>
+            <div v-for="variant in variants">Id: {{ variant.id }} Color:{{ variant.color }}</div>
+
             <!-- "v-show" condicional para mostrar ou esconder um elemento, é o metodo de melhor PERFORMANCE -->
             <!-- <p v-show="inStock">In Sotck</p> -->
 
-            <a v-bind:href="url">Link to search more</a>
+            <!-- <a v-bind:href="url">Link to search more</a> -->
           </div>
         </div>
       </div>
