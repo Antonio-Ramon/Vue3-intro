@@ -17,11 +17,21 @@
           <div class="product-image">
             <!-- image goes here -->
             <!-- "v-bind:" que pode ser resumido a ":" Liga dinamicamente um atributo a uma expressão -->
-            <img :src="image" alt="sock image">
+            <img v-bind:src="image" alt="sock image">
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
-            <a :href="url">Link to search more</a>
+
+            <!-- "v-if" condicional para adcionar ou remover um elemento -->
+            <p v-if="inventory > 10">In Sotck</p>
+            <p v-else-if="inventory <=10 && inventory > 0">Almost sold out</p>
+            <p v-else>Out of Sotck</p>
+            <p v-show="onSale">On Sale</p>
+
+            <!-- "v-show" condicional para mostrar ou esconder um elemento, é o metodo de melhor PERFORMANCE -->
+            <!-- <p v-show="inStock">In Sotck</p> -->
+
+            <a v-bind:href="url">Link to search more</a>
           </div>
         </div>
       </div>
