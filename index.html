@@ -32,7 +32,15 @@
             <ul>
               <li v-for="detail in details"> {{ detail }} </li>
             </ul>
-            <div v-for="variant in variants">Id: {{ variant.id }} Color:{{ variant.color }}</div>
+
+            <ul class="product-sizes">
+              <li v-for="render in sizes"> {{ render.label }} </li>
+            </ul>
+
+            <ul>
+              <li v-for="variant in variants" v-bind:key="variant.id"> {{ variant.color }}</li>
+            </ul>
+
 
             <!-- "v-show" condicional para mostrar ou esconder um elemento, é o metodo de melhor PERFORMANCE -->
             <!-- <p v-show="inStock">In Sotck</p> -->

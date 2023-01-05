@@ -113,6 +113,11 @@ p {
   width: 50%;
 }
 
+.product-sizes li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .review-form {
   display: flex;
   flex-direction: column;
