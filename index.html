@@ -11,6 +11,8 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
+
+      <div class="cart">Cart({{ cart }})</div>
       
       <div class="product-display">
         <div class="product-container">
@@ -27,6 +29,7 @@
             <p v-else-if="inventory <=10 && inventory > 0">Almost sold out</p>
             <p v-else>Out of Sotck</p>
             <p v-show="onSale">On Sale</p>
+            
 
             <!-- "v-for" é um atributo usado para iterar sobre um array ou objeto e renderizar um elemento HTML para cada item  -->
             <ul>
@@ -40,6 +43,10 @@
             <ul>
               <li v-for="variant in variants" v-bind:key="variant.id"> {{ variant.color }}</li>
             </ul>
+
+            <!-- O "v-on:click" é um diretivo do Vue.js que permite adicionar um evento de clique a um elemento HTML. Nesse caso o evento de clique no botão irá chamar o metodo "addToCart" que aumentará o valor da variável "cart" em 1 -->
+            <!-- O sintaxe "v-on:click" pode ser simplificada para "@click". -->
+            <button class="button" v-on:click="addToCart">Add to Cart</button>
 
 
             <!-- "v-show" condicional para mostrar ou esconder um elemento, é o metodo de melhor PERFORMANCE -->
