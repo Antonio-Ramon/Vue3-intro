@@ -41,12 +41,15 @@
             </ul>
 
             <ul>
-              <li v-for="variant in variants" v-bind:key="variant.id"> {{ variant.color }}</li>
+              <li v-for="variant in variants" v-bind:key="variant.id" @mouseover="updateImage(variant.image)">
+                <a href="#"> {{ variant.color }} </a></li>
             </ul>
 
             <!-- O "v-on:click" é um diretivo do Vue.js que permite adicionar um evento de clique a um elemento HTML. Nesse caso o evento de clique no botão irá chamar o metodo "addToCart" que aumentará o valor da variável "cart" em 1 -->
             <!-- O sintaxe "v-on:click" pode ser simplificada para "@click". -->
-            <button class="button" v-on:click="addToCart">Add to Cart</button>
+            <button class="button" @click="addToCart">Add to Cart</button>
+            <button class="button" @click="removefromCart" v-if="cart > 0" > Remove </button>
+
 
 
             <!-- "v-show" condicional para mostrar ou esconder um elemento, é o metodo de melhor PERFORMANCE -->
