@@ -25,11 +25,10 @@
             <h1>{{ product }}</h1>
 
             <!-- "v-if" condicional para adcionar ou remover um elemento -->
-            <p v-if="inventory > 10">In Sotck</p>
-            <p v-else-if="inventory <=10 && inventory > 0">Almost sold out</p>
-            <p v-else>Out of Sotck</p>
-            <p v-show="onSale">On Sale</p>
-            
+            <p v-if="inventory > 10">In Stock <br> On Sale</p>
+            <p v-else-if="inventory <=10 && inventory > 0">Almost sold out <br> On Sale</p>
+            <p v-else>Out of Stock</p>
+            <!-- <p v-show="onSale"></p> -->
 
             <!-- "v-for" é um atributo usado para iterar sobre um array ou objeto e renderizar um elemento HTML para cada item  -->
             <ul>
@@ -40,14 +39,25 @@
               <li v-for="render in sizes"> {{ render.label }} </li>
             </ul>
 
-            <ul>
-              <li v-for="variant in variants" v-bind:key="variant.id" @mouseover="updateImage(variant.image)">
-                <a href="#"> {{ variant.color }} </a></li>
-            </ul>
+            <div class="line-colors" v-bind:style="{ display: 'flex', gap: '10px' }">
+              <!-- O v-bind:style é uma diretiva do Vue.js que permite vincular um objeto de estilos a um elemento HTML. No exemplo abaixo, estamos usando a diretiva para aplicar a propriedade background-color ao elemento com o valor da propriedade color do objeto variant-->
+              <div
+                  v-for="variant in variants" 
+                  v-bind:key="variant.id" 
+                  @mouseover="updateImage(variant.image)"
+                  class="color-circle"
+                  v-bind:style="{ backgroundColor: variant.color}">
+              </div>
+            </div>
 
             <!-- O "v-on:click" é um diretivo do Vue.js que permite adicionar um evento de clique a um elemento HTML. Nesse caso o evento de clique no botão irá chamar o metodo "addToCart" que aumentará o valor da variável "cart" em 1 -->
             <!-- O sintaxe "v-on:click" pode ser simplificada para "@click". -->
-            <button class="button" @click="addToCart">Add to Cart</button>
+            <button 
+              class="button"
+              v-bind:disabled="!inStock" 
+              @click="addToCart">
+              Add to Cart
+          </button>
             <button class="button" @click="removefromCart" v-if="cart > 0" > Remove </button>
 
 
