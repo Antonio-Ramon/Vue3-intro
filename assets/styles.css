@@ -5,6 +5,14 @@ body {
   color: #282828;
 }
 
+.in-stock {
+  color: #3fc595;
+}
+
+.out-stock {
+  color: rgb(202, 8, 8);
+}
+
 .button {
   margin: 30px;
   background-color: #39495c;
@@ -25,7 +33,7 @@ body {
   margin: 25px 100px;
   float: right;
   border: 1px solid #d8d8d8;
-  padding: 10px 30px;
+  padding: 30px 30px;
   background-color: white;
   -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
@@ -77,9 +85,7 @@ label {
 
 li {
   font-size: 18px;
-  
 }
-
 
 .nav-bar {
   background: linear-gradient(-90deg, #84cf6a, #16c0b0);
@@ -113,11 +119,6 @@ p {
 .product-image,
 .product-info {
   width: 50%;
-}
-
-.product-sizes li {
-  display: inline-block;
-  margin-right: 10px;
 }
 
 .review-form {
@@ -186,9 +187,4 @@ ul {
   .review-form {
     width: 90%;
   }
-}
-
-a {
-  text-decoration: none;
-  color: #282828;
 }

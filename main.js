@@ -1,46 +1,32 @@
 const app = Vue.createApp({
     data() {
         return {
-            cart: 0,
+            cart:0,
             product: 'Socks',
+            brand: 'Vue Mastery',
             image: './assets/images/socks_blue.jpg',
-            url: 'https://vuejs.org/guide/quick-start.html#creating-a-vue-application',
-            inventory: 11,
-            onSale: true,
+            inStock: true,
+            inventory: 3,
             details: ['50% cotton', '30% wool', '20% polyester'],
-
             variants: [
-                { id: 2234, color: 'Green', image: './assets/images/socks_green.jpg' },
-                { id: 2235, color: 'Blue', image: './assets/images/socks_blue.jpg' },
-                { id: 2236, color: 'Red', image: './assets/images/socks_red.jpg' },
-                { id: 2237, color: 'Brown', image: './assets/images/socks_brown.jpg' },
-                { id: 2238, color: 'Purple', image: './assets/images/socks_purple.jpg' },
-            ],
-
-            sizes: [
-                { label: 'P'},
-                { label: 'M'},
-                { label: 'G'},
-                { label: 'GG'},
+              { id: 2234, color: 'green', image: './assets/images/socks_green.jpg' },
+              { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg' },
             ],
         }
     },
-    
     methods: {
         addToCart() {
             this.cart += 1
             this.inventory -=1
+            this.checkStock()
         },
-
-        removefromCart(){
-            this.cart -= 1
-            this.inventory +=1
+        checkStock(){
+            if(this.inventory == 0){
+                this.inStock = false
+            }
         },
-
-        updateImage(variantImage){
+        updateImage(variantImage) {
             this.image = variantImage
-        }
-    },
-
-
+        },
+    }
 })
